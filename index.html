@@ -111,22 +111,11 @@ function newc(){
     chats.appendChild(messageDiv);
     Cwidth('chats',cs*250+40);
     cs++;
-    sendWhatsApp('+'+num, 'Hello from JavaScript!');
-    openWhatsAppChat('+44 7546 767804');
+    const params = new URLSearchParams(window.location.search);
+    const data = params.get('data');
+    console.log(data); // "hello world"
 }
-function sendWhatsApp(number, message) {
-    // Remove any non-digit characters from the number (except +)
-    const cleanNumber = number.replace(/[^\d+]/g, '');
-    const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/${cleanNumber}?text=${encodedMessage}`;
-    window.open(url, '_blank');
-}
-// Usage:
-function openWhatsAppChat(number) {
-    const cleanNumber = number.replace(/[^\d+]/g, '');
-    const url = `https://wa.me/${cleanNumber}`;
-    window.open(url, '_blank');
-}
+
     </script>
 </body>
 </html>
